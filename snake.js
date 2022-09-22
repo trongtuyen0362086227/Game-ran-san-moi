@@ -107,7 +107,6 @@ class Snake {
         this.veRan()
     }
 }
-
 class Thucan {
     constructor(x, y) {
         this.x = x;
@@ -130,7 +129,7 @@ class Thucan {
         return number
     }
 
-    xuatHienThucAn(ranchu) {
+    xuatHienThucAn(ranchu,ranmoi) {
         console.log('goi dk ham ko')
         this.xoaThucAn()
         this.x = this.randomNumber();
@@ -148,14 +147,10 @@ class Thucan {
                 this.y = this.randomNumber();
             }
         }
-        // this.veThucAn()
     }
 }
-
 let ranchu = new Snake()
-
 ranchu.veRan()
-
 let thucan = new Thucan();
 thucan.xuatHienThucAn(ranchu)
 let score = 0;
@@ -167,9 +162,12 @@ let check = setInterval(() => {
         ranchu.tangThanRan()
         thucan.xuatHienThucAn(ranchu)
         score++;
-        document.getElementById('myScore').value = '   ' + score;
+        document.getElementById('myScore').value =  score;
     }
 }, 100);
+function resetGame() {
+    window.location.reload();
+}
 // document.onkeydown = function (e) {
 //     switch (e.keyCode) {
 //         case 37:
@@ -223,6 +221,9 @@ let check = setInterval(() => {
 // }
 //     addEventListener('keydown', moveSlack)
 // setTimeout(moveSlack,100)
+
+
+//tao fun di chuyen sẽ kết hợp với biến vận tốc //
 
 window.addEventListener("keydown", (function (canMove) {
     return function (event) {
